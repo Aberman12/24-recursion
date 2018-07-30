@@ -18,6 +18,5 @@ var getElementsByClassName = function(className, node) {
       results = results.concat(getElementsByClassName(className, node.childNodes[i]));
     }
   }
-  console.log(results)
   return results;
 };
