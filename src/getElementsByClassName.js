@@ -9,15 +9,15 @@ var getElementsByClassName = function(className, node) {
   var node = node || document.body;
   var results = [];
   
-  if (node.classList === className){
-    results.push(node.nodeName);
+  if (node.classList && _.contains(node.classList, className)){
+    results.push(node);
   }
   
   if (node.childNodes.length){
-    for (var = i; i < node.childNodes.length; i++){
-      results = results.concat(className, node.childNodes[i]);
+    for (var i = 0; i < node.childNodes.length; i++){
+      results = results.concat(getElementsByClassName(className, node.childNodes[i]));
     }
   }
-
+  console.log(results)
   return results;
 };
